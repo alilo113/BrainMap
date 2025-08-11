@@ -2,7 +2,7 @@ import React from "react";
 
 export function Chatroom(){
     return (
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-screen bg-[#353541]">
             <div className="m-2">
             <div>
                 <strong>Message 1</strong>
@@ -14,7 +14,7 @@ export function Chatroom(){
             <form className="flex items-center mt-auto mb-3">
             <input
                 type="text"
-                className="flex-grow rounded-lg bg-gray-100 py-3 px-4 focus:outline-none m-2"
+                className="flex-grow rounded-lg bg-[#3f414e] text-white py-3 px-4 focus:outline-none m-2 placeholder-gray-400"
                 placeholder="Type your message..."
             />
             <button
