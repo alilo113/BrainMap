@@ -1,93 +1,57 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Input,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-} from "@chakra-ui/react";
 
 export function Chatroom() {
-  const frameworks = [
-    "React",
-    "Solid",
-    "Vue",
-    "Angular",
-    "Svelte",
-    "Preact",
-    "Qwik",
-    "Lit",
-    "Alpine.js",
-    "Ember",
-    "Next.js",
-  ];
-
-  const [search, setSearch] = useState("");
-  const filtered = frameworks.filter((fw) =>
-    fw.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
-    <Box display="flex" flexDirection="column" height="100vh" bg="#353541">
-      {/* Messages */}
-      <Box m={2}>
-        <Box color="white" fontWeight="bold">
-          Message 1
-        </Box>
-        <Box color="white" fontWeight="bold">
-          Message 2
-        </Box>
-      </Box>
+    <div className="flex flex-col h-screen bg-[#353541]">
+      <div className="m-2">
+        <div>
+          <strong>Sample message</strong>
+        </div>
+        <div>
+          <strong>Another sample message</strong>
+        </div>
+      </div>
+      <form className="flex items-center mt-auto mb-3">
+        <select
+          name="option"
+          className="
+            absolute ml-4
+            bg-[#353541] 
+            text-white 
+            py-2 px-3 
+            rounded-md 
+            "
+            >
+          <option hidden>+</option>
+          <option value="1">gg</option>
+          <option value="2">gg</option>
+          <option value="3">gg</option>
+        </select>
 
-      {/* Form */}
-      <Box
-        as="form"
-        display="flex"
-        alignItems="center"
-        mt="auto"
-        mb={3}
-        px={2}
-      >
-        {/* Search Dropdown */}
-        <Menu isOpen={search.length > 0}>
-          <MenuButton
-            as={Input}
-            placeholder="Type to search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            bg="#3f414e"
-            color="white"
-            _placeholder={{ color: "gray.400" }}
-            borderRadius="md"
-            mr={2}
-          />
-          {filtered.length > 0 && (
-            <MenuList>
-              {filtered.map((fw, i) => (
-                <MenuItem key={i} onClick={() => setSearch(fw)}>
-                  {fw}
-                </MenuItem>
-              ))}
-            </MenuList>
-          )}
-        </Menu>
-
-        {/* Message input */}
-        <Input
-          flex="1"
-          placeholder="Type your message..."
-          bg="#3f414e"
-          color="white"
-          _placeholder={{ color: "gray.400" }}
-          borderRadius="md"
-          mr={2}
+        <input
+          type="text"
+          className="
+          flex-grow 
+          rounded-lg 
+          bg-[#3f414e] 
+          text-white
+          py-3 px-20 
+          m-2
+          border border-gray-600
+          focus:outline-none 
+          focus:ring-2 
+          focus:ring-blue-500
+          placeholder-gray-400
+          "
+          placeholder="Type..."
         />
-
-        {/* Send button */}
-        <Button colorScheme="blue">Send</Button>
-      </Box>
-    </Box>
+        <button
+          type="submit"
+          className="bg-blue-500 mr-3 hover:bg-blue-700 text-white font-bold py-3 px-6 ml-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Send
+        </button>
+      </form>
+    </div>
   );
 }
